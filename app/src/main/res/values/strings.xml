@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movie streaming App</string>
+    <string name="home">Home</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="movies">Movies</string>
+    <string name="kids">Kids</string>
+    <string name="gp_moviez">GP Moviez</string>
+</resources>
