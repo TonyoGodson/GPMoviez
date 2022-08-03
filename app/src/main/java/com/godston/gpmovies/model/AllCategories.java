@@ -1,13 +1,25 @@
 package com.godston.gpmovies.model;
 
+import java.util.List;
+
 public class AllCategories {
 
     String categoryTitle;
-    Integer category;
+    Integer categoryId;
+    private List<CategoryItem> categoryItemList = null;
 
-    public AllCategories(Integer category, String categoryTitle) {
+    public AllCategories(Integer categoryId, String categoryTitle, List<CategoryItem> categoryItemList) {
         this.categoryTitle = categoryTitle;
-        this.category = category;
+        this.categoryId = categoryId;
+        this.categoryItemList = categoryItemList;
+    }
+
+    public List<CategoryItem> getCategoryItemList() {
+        return categoryItemList;
+    }
+
+    public void setCategoryItemList(List<CategoryItem> categoryItemList) {
+        this.categoryItemList = categoryItemList;
     }
 
     public String getCategoryTitle() {
@@ -19,10 +31,10 @@ public class AllCategories {
     }
 
     public Integer getCategory() {
-        return category;
+        return categoryId;
     }
 
     public void setCategory(Integer category) {
-        this.category = category;
+        this.categoryId = categoryId;
     }
 }
