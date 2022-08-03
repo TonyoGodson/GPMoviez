@@ -1,11 +1,15 @@
 package com.godston.gpmovies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
 import com.godston.gpmovies.adapter.BannerMoviesPagerAdapter;
+import com.godston.gpmovies.adapter.MainRecyclerAdapter;
+import com.godston.gpmovies.model.AllCategories;
 import com.godston.gpmovies.model.BannerMovies;
 import com.google.android.material.tabs.TabLayout;
 
@@ -22,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     List<BannerMovies> tvShowBannerList;
     List<BannerMovies> moviesBannerList;
     List<BannerMovies> kidsBannerList;
+    Timer sliderTimer;
+    MainRecyclerAdapter mainRecyclerAdapter;
+    RecyclerView mainRecycler;
+    List<AllCategories> allCategoriesList;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
         kidsBannerList.add(new BannerMovies(6, "test1", "https://demonuts.com/Demonuts/SampleImages/W-03.JPG", ""));
 
         setBannerMoviesPagerAdapter(homeBannerList);
-//        setBannerMoviesPagerAdapter(tvShowBannerList);
-//        setBannerMoviesPagerAdapter(moviesBannerList);
-//        setBannerMoviesPagerAdapter(kidsBannerList);
 
         categoryTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -95,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        allCategoriesList = new ArrayList<>();
+        allCategoriesList.add(new AllCategories(1, "BollyWood"));
+        allCategoriesList.add(new AllCategories(2, "HollyWood"));
+        allCategoriesList.add(new AllCategories(2, "Kids"));
+
+        setMainRecycler(allCategoriesList);
     }
     private void setBannerMoviesPagerAdapter(List<BannerMovies> bannerMoviesList) {
         bannerMoviesviewPager = findViewById(R.id.banner_view_pager);
@@ -102,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
         bannerMoviesviewPager.setAdapter(bannerMoviesPagerAdapter);
         indicatorTab.setupWithViewPager(bannerMoviesviewPager);
 
-        Timer timerSlider = new Timer();
-        timerSlider.scheduleAtFixedRate(new AutoSlider(), 4000, 3000);
+        sliderTimer = new Timer();
+        sliderTimer.scheduleAtFixedRate(new AutoSlider(), 4000, 3000);
         indicatorTab.setupWithViewPager(bannerMoviesviewPager, true);
     }
 
@@ -124,4 +136,12 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+    public void setMainRecycler(List<AllCategories> allCategoriesList) {
+        mainRecycler = findViewById(R.id.main_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        mainRecycler.setLayoutManager(layoutManager);
+        mainRecyclerAdapter = new MainRecyclerAdapter(this, allCategoriesList);
+        mainRecycler.setAdapter(mainRecyclerAdapter);
+    }
+
 }
