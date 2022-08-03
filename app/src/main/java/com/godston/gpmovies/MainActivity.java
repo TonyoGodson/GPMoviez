@@ -11,6 +11,7 @@ import com.godston.gpmovies.adapter.BannerMoviesPagerAdapter;
 import com.godston.gpmovies.adapter.MainRecyclerAdapter;
 import com.godston.gpmovies.model.AllCategories;
 import com.godston.gpmovies.model.BannerMovies;
+import com.godston.gpmovies.model.CategoryItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -101,10 +102,42 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        List<CategoryItem> homeCatListItem1 = new ArrayList<>();
+        homeCatListItem1.add(new CategoryItem(1, "Super Pets", "https://demonuts.com/Demonuts/SampleImages/W-21.JPG", ""));
+        homeCatListItem1.add(new CategoryItem(2, "Top Gun", "https://demonuts.com/Demonuts/SampleImages/W-21.JPG", ""));
+        homeCatListItem1.add(new CategoryItem(3, "Stranger Things", "https://demonuts.com/Demonuts/SampleImages/W-21.JPG", ""));
+        homeCatListItem1.add(new CategoryItem(4, "Black Phone", "https://demonuts.com/Demonuts/SampleImages/W-21.JPG", ""));
+        homeCatListItem1.add(new CategoryItem(5, "Doctor Strange", "https://demonuts.com/Demonuts/SampleImages/W-21.JPG", ""));
+
+        List<CategoryItem> homeCatListItem2 = new ArrayList<>();
+        homeCatListItem2.add(new CategoryItem(1, "Super Pets", "https://demonuts.com/Demonuts/SampleImages/W-10.JPG", ""));
+        homeCatListItem2.add(new CategoryItem(2, "Top Gun", "https://demonuts.com/Demonuts/SampleImages/W-10.JPG", ""));
+        homeCatListItem2.add(new CategoryItem(3, "Stranger Things", "https://demonuts.com/Demonuts/SampleImages/W-10.JPG", ""));
+        homeCatListItem2.add(new CategoryItem(4, "Black Phone", "https://demonuts.com/Demonuts/SampleImages/W-10.JPG", ""));
+        homeCatListItem2.add(new CategoryItem(5, "Doctor Strange", "https://demonuts.com/Demonuts/SampleImages/W-10.JPG", ""));
+
+
+
+        List<CategoryItem> homeCatListItem3 = new ArrayList<>();
+        homeCatListItem3.add(new CategoryItem(1, "Super Pets", "https://demonuts.com/Demonuts/SampleImages/W-17.JPG", ""));
+        homeCatListItem3.add(new CategoryItem(2, "Top Gun", "https://demonuts.com/Demonuts/SampleImages/W-17.JPG", ""));
+        homeCatListItem3.add(new CategoryItem(3, "Stranger Things", "https://demonuts.com/Demonuts/SampleImages/W-17.JPG", ""));
+        homeCatListItem3.add(new CategoryItem(4, "Black Phone", "https://demonuts.com/Demonuts/SampleImages/W-17.JPG", ""));
+        homeCatListItem3.add(new CategoryItem(5, "Doctor Strange", "https://demonuts.com/Demonuts/SampleImages/W-17.JPG", ""));
+
+        List<CategoryItem> homeCatListItem4 = new ArrayList<>();
+        homeCatListItem4.add(new CategoryItem(1, "Super Pets", "https://demonuts.com/Demonuts/SampleImages/W-08.JPG", ""));
+        homeCatListItem4.add(new CategoryItem(2, "Top Gun", "https://demonuts.com/Demonuts/SampleImages/W-08.JPG", ""));
+        homeCatListItem4.add(new CategoryItem(3, "Stranger Things", "https://demonuts.com/Demonuts/SampleImages/W-08.JPG", ""));
+        homeCatListItem4.add(new CategoryItem(4, "Black Phone", "https://demonuts.com/Demonuts/SampleImages/W-08.JPG", ""));
+        homeCatListItem4.add(new CategoryItem(5, "Doctor Strange", "https://demonuts.com/Demonuts/SampleImages/W-08.JPG", ""));
+
         allCategoriesList = new ArrayList<>();
-        allCategoriesList.add(new AllCategories(1, "BollyWood"));
-        allCategoriesList.add(new AllCategories(2, "HollyWood"));
-        allCategoriesList.add(new AllCategories(2, "Kids"));
+        allCategoriesList.add(new AllCategories(1, "Watch next TV and movies", homeCatListItem1));
+        allCategoriesList.add(new AllCategories(2, "Movies in Hindi", homeCatListItem2));
+        allCategoriesList.add(new AllCategories(2, "Kids and family movies", homeCatListItem3));
+        allCategoriesList.add(new AllCategories(2, "Amazon Original Series", homeCatListItem4));
 
         setMainRecycler(allCategoriesList);
     }
